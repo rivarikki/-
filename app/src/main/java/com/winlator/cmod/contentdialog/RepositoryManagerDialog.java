@@ -188,4 +188,26 @@ public class RepositoryManagerDialog {
                     } else if (item.getTitle().equals("Delete")) {
                         repos.remove(position);
                         saveRepos();
-    
+                        notifyDataSetChanged();
+                    }
+                    return true;
+                });
+                popup.show();
+            });
+        }
+
+        @Override
+        public int getItemCount() { return repos.size(); }
+
+        class ViewHolder extends RecyclerView.ViewHolder {
+            TextView title, subtitle;
+            ImageButton actionButton;
+            ViewHolder(View v) {
+                super(v);
+                title = v.findViewById(R.id.TVName);
+                subtitle = v.findViewById(R.id.TVVersion);
+                actionButton = v.findViewById(R.id.BTMenu);
+            }
+        }
+    }
+}
