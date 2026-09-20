@@ -117,14 +117,14 @@ public class RepositoryManagerDialog {
         repos.clear();
         if (jsonStr.isEmpty()) {
             
-            
-            
-            repos.add(new DriverRepo("K11MCH1 Turnip Drivers", "https://api.github.com/repos/K11MCH1/AdrenoToolsDrivers/releases"));     
-            repos.add(new DriverRepo("StevenMX Turnip Drivers", "https://api.github.com/repos/StevenMXZ/freedreno_turnip-CI/releases"));
-        
-            repos.add(new DriverRepo("Snapdragon Elite Drivers", "https://api.github.com/repos/StevenMXZ/Adrenotools-Drivers/releases"));
-            
-            repos.add(new DriverRepo("Weab-Chan Turnip Drivers", "https://api.github.com/repos/Weab-chan/freedreno_turnip-CI/releases"));
+            repos.add(new DriverRepo(
+                    "Banners Turnip Drivers",
+                    "https://api.github.com/repos/The412Banner/Banners-Turnip/releases"
+            ));
+            repos.add(new DriverRepo(
+                    "Purple Turnip Drivers",
+                    "https://api.github.com/repos/MrPurple666/purple-turnip/releases"
+            ));
 
         } else {
             try {
@@ -188,26 +188,4 @@ public class RepositoryManagerDialog {
                     } else if (item.getTitle().equals("Delete")) {
                         repos.remove(position);
                         saveRepos();
-                        notifyDataSetChanged();
-                    }
-                    return true;
-                });
-                popup.show();
-            });
-        }
-
-        @Override
-        public int getItemCount() { return repos.size(); }
-
-        class ViewHolder extends RecyclerView.ViewHolder {
-            TextView title, subtitle;
-            ImageButton actionButton;
-            ViewHolder(View v) {
-                super(v);
-                title = v.findViewById(R.id.TVName);
-                subtitle = v.findViewById(R.id.TVVersion);
-                actionButton = v.findViewById(R.id.BTMenu);
-            }
-        }
-    }
-}
+    
